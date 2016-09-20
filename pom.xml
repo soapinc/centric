@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.com.soap</groupId>
+	<artifactId>centric</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Centric parent POM</name>
+	<description>Parent POM for Centric projects. Provides default project build configuration.</description>
+	<url>http://soap.com.pl</url>
+
+	<issueManagement>
+		<system>JIRA</system>
+		<url>https://issues.soap.com.pl/</url>
+	</issueManagement>
+
+	<scm>
+		<connection>scm:git:git@github.com:soapinc/centric.git</connection>
+		<developerConnection>scm:git:git@github.com:soapinc/centric.git</developerConnection>
+		<url>http://github.com/soapinc/centric</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>soap.com.pl</id>
+			<name>Soap</name>
+			<organization>SOAP</organization>
+			<organizationUrl>http://soap.com.pl</organizationUrl>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>SOAP</name>
+		<url>http://soap.com.pl</url>
+	</organization>
+
+	<properties>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<compiler.target>1.8</compiler.target>
+		<compiler.source>1.8</compiler.source>
+
+		<version.checkstyle.plugin>2.17</version.checkstyle.plugin>
+		<version.compiler.plugin>3.5.1</version.compiler.plugin>
+		<version.license.plugin>1.9</version.license.plugin>
+
+		<version.checkstyle>6.19</version.checkstyle>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>${version.license.plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${version.checkstyle.plugin}</version>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>${version.checkstyle}</version>
+							<exclusions>
+								<exclusion>
+									<groupId>com.sun</groupId>
+									<artifactId>tools</artifactId>
+								</exclusion>
+							</exclusions>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.compiler.plugin}</version>
+					<configuration>
+						<showDeprecation>true</showDeprecation>
+						<showWarnings>true</showWarnings>
+						<source>${compiler.source}</source>
+						<target>${compiler.target}</target>
+						<compilerArgs>
+							<arg>-Xlint:unchecked</arg>
+						</compilerArgs>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
