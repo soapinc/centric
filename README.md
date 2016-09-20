@@ -16,4 +16,4 @@ Support
 
 Documentation
 --------------
-Please see [wiki] (https://github.com/soap/centric/wiki) for detailed documentation.
+Please see [wiki] (https://github.com/soapinc/centric/wiki) for detailed documentation.
